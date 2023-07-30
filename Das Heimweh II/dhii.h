@@ -8,6 +8,9 @@
 #include <string>
 #include <clocale>
 #include <time.h>
+#include <thread>
+#include <chrono>
+
 
 using namespace std;
 class dhii {

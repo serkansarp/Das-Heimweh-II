@@ -11,5 +11,9 @@ endif()
 
 project ("Das Heimweh II")
 
+# C++ derleme seçenekleri
+set(CMAKE_CXX_STANDARD 11)
+
+
 # Alt projeleri ekleyin.
 add_subdirectory ("Das Heimweh II")

@@ -1,10 +1,14 @@
 ﻿#include "dhii.h"
 
+// DAS HEIMWEH II
+// DEVELOPING & TESTING
+
 
 int main(){
 	setlocale(LC_ALL, "Turkish");
 	srand(time(NULL));
-	int soruSayisi = 0;
+	int soruSayisi = 18;
+	int dogruCevap = 0;
 	int rastgeleIl = 0;
 	string ilAdi = "0";
 	float puan = 0;
@@ -17,20 +21,82 @@ int main(){
 	cin.control
 	*/
 
-	for(int i=0;i<5;i++){
-		rastgeleIl = rand() % 81 + 1;	//5
+	for(int i=1;i<=soruSayisi;i++){
+		rastgeleIl = rand() % 81 + 1;
 		dhii nIl;
 		cout << " * Türkçe karakter kullanmadan küçük harflerle yazın " << endl;
 		cout << " " << rastgeleIl << " plaka kodunun ait olduğu il: ";
 		cin >> ilAdi;
-		if (ilAdi == nIl.getIl(rastgeleIl)) { cout << "doğru"; }
-		else { cout << "yanlış, " << nIl.getIl(rastgeleIl) << "olmalıydı." << endl; }
 		
+		if (rastgeleIl == 3 && ilAdi == "afyon") {
+			cout << "NOT: 2005'te Afyonkarahisar ismini almış olan il Afyon olarak da anılır." << endl;
+			puan += 100 * 1 / soruSayisi;
+			cout << " PUAN: " << (float)puan << endl;
+			this_thread::sleep_for(chrono::milliseconds(1500));
+		}
+					
+		if (rastgeleIl == 27 && ilAdi == "antep") {
+			cout << "YARIM PUAN: 1921'de Gazi unvanı verilerek Gaziantep olmuştur." << endl;
+			puan += 100 * 1 / soruSayisi/2;
+			cout << " PUAN: " << puan << endl;
+			this_thread::sleep_for(chrono::milliseconds(1500));
+		}
+
+		if (rastgeleIl == 31 && ilAdi == "antakya") {
+			cout << "YARIM PUAN: Antakya, Hatay'ın merkez ilçesidir." << endl;
+			puan += 100 * 1 / soruSayisi / 2;
+			cout << " PUAN: " << puan << endl;
+			this_thread::sleep_for(chrono::milliseconds(1500));
+		}
+
+		if (rastgeleIl == 33 && ilAdi == "mersin") {
+			cout << "YARIM PUAN: Mersin, İçel'in merkez ilçesidir." << endl;
+			puan += 100 * 1 / soruSayisi / 2;
+			cout << " PUAN: " << puan << endl;
+			this_thread::sleep_for(chrono::milliseconds(1500));
+		}
+		
+		if (rastgeleIl == 41 && ilAdi == "izmit") {
+			cout << "YARIM PUAN: İzmit, Kocaeli'nin merkez ilçesidir." << endl;
+			puan += 100 * 1 / soruSayisi / 2;
+			cout << " PUAN: " << puan << endl;
+			this_thread::sleep_for(chrono::milliseconds(1500));
+		}
+
+		if (rastgeleIl == 46 && ilAdi == "maras") {
+			cout << "YARIM PUAN: 1925'te isminin başına Kahraman unvanı eklenerek Kahramanmaraş olmuştur." << endl;
+			puan += 100 * 1 / soruSayisi / 2;
+			cout << " PUAN: " << puan << endl;
+			this_thread::sleep_for(chrono::milliseconds(1500));
+		}
+
+		if (rastgeleIl == 54 && ilAdi == "adapazari") {
+			cout << "YARIM PUAN: Adapazarı, Sakarya'nın merkez ilçesidir." << endl;
+			puan += 100 * 1 / soruSayisi / 2;
+			cout << " PUAN: " << puan << endl;
+			this_thread::sleep_for(chrono::milliseconds(1500));
+		}
+
+		if (rastgeleIl == 63 && ilAdi == "urfa") {
+			cout << "YARIM PUAN: 1984'te isminin başına Şanlı unvanı eklenerek Şanlıurfa olmuştur" << endl;
+			puan += 100 * 1 / soruSayisi / 2;
+			cout << " PUAN: " << puan << endl;
+			this_thread::sleep_for(chrono::milliseconds(1500));
+		}
+
+		if (ilAdi == nIl.getIl(rastgeleIl)) {
+			cout << " DOĞRU!" << endl;
+			puan += 100 * 1 / soruSayisi;
+		}
+		else { cout << " YANLIŞ, " << nIl.getIl(rastgeleIl) << " olmalıydı." << endl; }
+		
+		cout << " PUAN: " << (float)puan << endl;
+
+		this_thread::sleep_for(chrono::milliseconds(1500));
+		
+		cout << "\033[2J\033[0;0H";
 	}
 	
-	// cout << rastgeleIl << " " << nIl.getIl(rastgeleIl);
-
-
 
 
 	/*
