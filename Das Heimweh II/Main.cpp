@@ -6,6 +6,7 @@ int main(){
 	srand(time(NULL));
 	int soruSayisi = 0;
 	int rastgeleIl = 0;
+	string ilAdi = "0";
 	float puan = 0;
 	
 	
@@ -16,9 +17,18 @@ int main(){
 	cin.control
 	*/
 
-	rastgeleIl = rand() % 81 + 1;
-	dhii nIl;
-	cout << rastgeleIl << " " << nIl.getIl(rastgeleIl);
+	for(int i=0;i<5;i++){
+		rastgeleIl = rand() % 81 + 1;	//5
+		dhii nIl;
+		cout << " * Türkçe karakter kullanmadan küçük harflerle yazın " << endl;
+		cout << " " << rastgeleIl << " plaka kodunun ait olduğu il: ";
+		cin >> ilAdi;
+		if (ilAdi == nIl.getIl(rastgeleIl)) { cout << "doğru"; }
+		else { cout << "yanlış, " << nIl.getIl(rastgeleIl) << "olmalıydı." << endl; }
+		
+	}
+	
+	// cout << rastgeleIl << " " << nIl.getIl(rastgeleIl);
 
 
 
