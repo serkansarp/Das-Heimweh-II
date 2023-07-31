@@ -7,11 +7,12 @@
 int main(){
 	setlocale(LC_ALL, "Turkish");
 	srand(time(NULL));
-	int soruSayisi = 18;
+	int soruSayisi = 29;
 	int dogruCevap = 0;
 	int rastgeleIl = 0;
 	string ilAdi = "0";
 	float puan = 0;
+	int hatirlatici = 0;
 	
 	
 
@@ -25,79 +26,57 @@ int main(){
 		rastgeleIl = rand() % 81 + 1;
 		dhii nIl;
 		cout << " * Türkçe karakter kullanmadan küçük harflerle yazın " << endl;
-		cout << " " << rastgeleIl << " plaka kodunun ait olduğu il: ";
+		cout << " " << setfill('0') << setw(2) << rastgeleIl << " plaka kodunun ait olduğu il: ";
 		cin >> ilAdi;
 		
-		if (rastgeleIl == 3 && ilAdi == "afyon") {
-			cout << "NOT: 2005'te Afyonkarahisar ismini almış olan il Afyon olarak da anılır." << endl;
-			puan += 100 * 1 / soruSayisi;
-			cout << " PUAN: " << (float)puan << endl;
-			this_thread::sleep_for(chrono::milliseconds(1500));
-		}
-					
-		if (rastgeleIl == 27 && ilAdi == "antep") {
-			cout << "YARIM PUAN: 1921'de Gazi unvanı verilerek Gaziantep olmuştur." << endl;
-			puan += 100 * 1 / soruSayisi/2;
-			cout << " PUAN: " << puan << endl;
-			this_thread::sleep_for(chrono::milliseconds(1500));
-		}
-
-		if (rastgeleIl == 31 && ilAdi == "antakya") {
-			cout << "YARIM PUAN: Antakya, Hatay'ın merkez ilçesidir." << endl;
-			puan += 100 * 1 / soruSayisi / 2;
-			cout << " PUAN: " << puan << endl;
-			this_thread::sleep_for(chrono::milliseconds(1500));
-		}
-
-		if (rastgeleIl == 33 && ilAdi == "mersin") {
-			cout << "YARIM PUAN: Mersin, İçel'in merkez ilçesidir." << endl;
-			puan += 100 * 1 / soruSayisi / 2;
-			cout << " PUAN: " << puan << endl;
-			this_thread::sleep_for(chrono::milliseconds(1500));
-		}
-		
-		if (rastgeleIl == 41 && ilAdi == "izmit") {
-			cout << "YARIM PUAN: İzmit, Kocaeli'nin merkez ilçesidir." << endl;
-			puan += 100 * 1 / soruSayisi / 2;
-			cout << " PUAN: " << puan << endl;
-			this_thread::sleep_for(chrono::milliseconds(1500));
-		}
-
-		if (rastgeleIl == 46 && ilAdi == "maras") {
-			cout << "YARIM PUAN: 1925'te isminin başına Kahraman unvanı eklenerek Kahramanmaraş olmuştur." << endl;
-			puan += 100 * 1 / soruSayisi / 2;
-			cout << " PUAN: " << puan << endl;
-			this_thread::sleep_for(chrono::milliseconds(1500));
-		}
-
-		if (rastgeleIl == 54 && ilAdi == "adapazari") {
-			cout << "YARIM PUAN: Adapazarı, Sakarya'nın merkez ilçesidir." << endl;
-			puan += 100 * 1 / soruSayisi / 2;
-			cout << " PUAN: " << puan << endl;
-			this_thread::sleep_for(chrono::milliseconds(1500));
-		}
-
-		if (rastgeleIl == 63 && ilAdi == "urfa") {
-			cout << "YARIM PUAN: 1984'te isminin başına Şanlı unvanı eklenerek Şanlıurfa olmuştur" << endl;
-			puan += 100 * 1 / soruSayisi / 2;
-			cout << " PUAN: " << puan << endl;
-			this_thread::sleep_for(chrono::milliseconds(1500));
-		}
-
 		if (ilAdi == nIl.getIl(rastgeleIl)) {
 			cout << " DOĞRU!" << endl;
-			puan += 100 * 1 / soruSayisi;
+			puan += (float)100 * 1 / soruSayisi;
+		}	else {
+			if (ilAdi != nIl.getIl(rastgeleIl)) {
+				hatirlatici++;
+				cout << " 1. " << nIl.getOzellik(hatirlatici) << endl << " Tekrar deneyin : ";
+				cin >> ilAdi;
+				if (ilAdi != nIl.getIl(rastgeleIl)) {
+					hatirlatici++;
+					cout << " 2. " << nIl.getOzellik(hatirlatici) << endl << " Tekrar deneyin : ";
+					cin >> ilAdi;
+					if (ilAdi != nIl.getIl(rastgeleIl)) {
+						hatirlatici++;
+						cout << " 3. " << nIl.getOzellik(hatirlatici) << endl << " Son Hakkınız   : ";
+						cin >> ilAdi;
+						if (ilAdi != nIl.getIl(rastgeleIl)) {
+							cout << " YANLIŞ! -" << nIl.getIl(rastgeleIl) << "- olmalıydı." << endl;
+							hatirlatici = 0;
+						}
+					}
+					else { 
+						cout << " DOĞRU!" << endl;
+						puan += (float)100 * 1 / soruSayisi;
+					}
+				}
+				else {
+					cout << " DOĞRU!" << endl;
+					puan += (float)100 * 1 / soruSayisi;
+				}
+			}
+			else {
+				cout << " DOĞRU!" << endl;
+				puan += (float)100 * 1 / soruSayisi;
+			}
 		}
-		else { cout << " YANLIŞ, " << nIl.getIl(rastgeleIl) << " olmalıydı." << endl; }
+
 		
-		cout << " PUAN: " << (float)puan << endl;
+		
+		cout << " % " << setprecision(2) << fixed << (float)puan << endl;
 
 		this_thread::sleep_for(chrono::milliseconds(1500));
 		
 		cout << "\033[2J\033[0;0H";
+		
 	}
 	
-
+	
 
 	/*
 		afyon -> afyonkarahisar (2005'te afyonkarahisar ismini alan afyonlular'ın çoğu afyon ismini kullanmaktadır)
