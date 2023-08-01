@@ -34,7 +34,7 @@ int main(){
 			puan += (float)100 * 1 / soruSayisi;
 		}	else {
 			if (ilAdi != nIl.getIl(rastgeleIl)) {
-				hatirlatici++;
+				hatirlatici = rastgeleIl * 3 - 2;
 				cout << " 1. " << nIl.getOzellik(hatirlatici) << endl << " Tekrar deneyin : ";
 				cin >> ilAdi;
 				if (ilAdi != nIl.getIl(rastgeleIl)) {
