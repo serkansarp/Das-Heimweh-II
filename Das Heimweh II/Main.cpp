@@ -7,7 +7,7 @@
 int main(){
 	setlocale(LC_ALL, "Turkish");
 	srand(time(NULL));
-	int soruSayisi = 29;
+	int soruSayisi = 2;
 	int dogruCevap = 0;
 	int rastgeleIl = 0;
 	string ilAdi = "0";
@@ -23,6 +23,7 @@ int main(){
 	*/
 
 	for(int i=1;i<=soruSayisi;i++){
+		cout << " Puanınız: " << puan << " / 100   -  " << soruSayisi-i << " soru kaldı." <<endl;
 		rastgeleIl = rand() % 81 + 1;
 		dhii nIl;
 		cout << " * Türkçe karakter kullanmadan küçük harflerle yazın " << endl;
@@ -51,17 +52,17 @@ int main(){
 						}
 					}
 					else { 
-						cout << " DOĞRU!" << endl;
+						cout << " DOĞRU! - 1/4 puan kırıldı" << endl;
 						puan += (float)100 * 1 / soruSayisi;
 					}
 				}
 				else {
-					cout << " DOĞRU!" << endl;
+					cout << " DOĞRU! - Yarım puan kırıldı" << endl;
 					puan += (float)100 * 1 / soruSayisi;
 				}
 			}
 			else {
-				cout << " DOĞRU!" << endl;
+				cout << " DOĞRU! - 3/4 puan kırıldı" << endl;
 				puan += (float)100 * 1 / soruSayisi;
 			}
 		}
