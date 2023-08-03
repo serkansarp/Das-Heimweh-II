@@ -7,7 +7,7 @@
 int main(){
 	setlocale(LC_ALL, "Turkish");
 	srand(time(NULL));
-	int soruSayisi = 10;
+	int soruSayisi = 0;
 	int dogruCevap = 0;
 	int rastgeleIl = 0;
 	string ilAdi = "0";
@@ -15,82 +15,80 @@ int main(){
 	int hatirlatici = 0;
 	
 	
-
-	/*
-	cout << "Lütfen kaç soru cevaplandırmak istiyorsanız girin (En az 5): ";
+	cout << " ________   Serkan SARP's    ___ ___         .__                      .__      .___.___" << endl;
+	cout << " \\______ \\ _____    ______  /   |   \\   ____ |__| _______  _  __ ____ |  |__   |   |   |" << endl;
+	cout << "  |    |  \\\\__  \\  /  ___/ /    ~    \\_/ __ \\|  |/     \\ \\/ \\/ // __ \\|  |  \\  |   |   |" << endl;
+	cout << "  |    `   \\/ __ \\_\\___ \\  \\    Y    /\\  ___/|  |  Y Y  \\     /\\  ___/|   Y  \\ |   |   |" << endl;
+	cout << " /_______  (____  /____  >  \\___|_  /  \\___  >__|__|_|  /\\/\\_/  \\___  >___|  / |___|___|" << endl;
+	cout << "         \\/     \\/     \\/         \\/ 2023  \\/         \\/            \\/     \\/  Logo: patorjk.com" << endl;
+	cout << " ---------------------------------------------------------------------------------------- " << endl << endl;
+	cout << " - Das Heimweh (Sıla Hasreti) oyunumun 2'nci versiyonu olarak geliştirilmiştir." << endl;
+	cout << " - İlk oyun, yurt dışına göç eden software developerlar, doktorlar ve diğer yurt dışında" << endl;
+	cout << "   yaşayan Türk vatandaşları düşünülerek, ilin ismini verip plaka kodunu istemekteydi." << endl;
+	cout << " - Bu versiyonda plaka kodu verilen ilin adı  istenmekte  olup yanlış cevaplar için 3'er" << endl;
+	cout << "   ipucu da eklenmiştir. İpuçları, sorunun tam puanından 1/4 oranında eksiltilir." << endl;
+	cout << " - İlk cevapta doğru bilirseniz soru için atanan en yüksek puanı alırsınız." << endl;
+	cout << " - İpuçları ilk oyunun amacını daha fazla yerine getirmesi için eklenmiş bir özelliktir." << endl;
+	cout << " - Ayrıca kalan soru sayısı ve güncel puan durumunuz sürekli ekranda görüntülenir." << endl;
+	cout << " - Cevapları Türkçe karakter kullanmadan ve küçük harfle yazın." << endl << endl;
+	cout << " ---------------------------------------------------------------------------------------- " << endl;
+	
+	cout << " Lütfen kaç soru cevaplandırmak istiyorsanız girin (En az 5): ";
 	cin >> soruSayisi;
-	cin.control
-	*/
+	if (soruSayisi < 5)
+		soruSayisi = 5;
+	
+	cout << "\x1B[8;0H\x1B[J";
 
 	for(int i=1;i<=soruSayisi;i++){
-		cout << " Puanınız: " << puan << " / 100   -  " << soruSayisi-i << " soru kaldı." <<endl;
+		cout << " Puanınız: " << puan << " / 100   -  " << soruSayisi - i << " soru kaldı." << endl << endl;
 		rastgeleIl = rand() % 81 + 1;
 		dhii nIl;
-		cout << " * Türkçe karakter kullanmadan küçük harflerle yazın " << endl;
 		cout << " " << setfill('0') << setw(2) << rastgeleIl << " plaka kodunun ait olduğu il: ";
 		cin >> ilAdi;
 		
-		if (ilAdi == nIl.getIl(rastgeleIl)) {
-			cout << " DOĞRU!" << endl;
-			puan += (float)100 * 1 / soruSayisi;
-		}	else {
-			if (ilAdi != nIl.getIl(rastgeleIl)) {
-				hatirlatici = rastgeleIl * 3 - 2;
-				cout << " 1. " << nIl.getOzellik(hatirlatici) << endl << " Tekrar deneyin : ";
-				cin >> ilAdi;
-				if (ilAdi != nIl.getIl(rastgeleIl)) {
-					hatirlatici++;
-					cout << " 2. " << nIl.getOzellik(hatirlatici) << endl << " Tekrar deneyin : ";
-					cin >> ilAdi;
-					if (ilAdi != nIl.getIl(rastgeleIl)) {
-						hatirlatici++;
-						cout << " 3. " << nIl.getOzellik(hatirlatici) << endl << " Son Hakkınız   : ";
-						cin >> ilAdi;
-						if (ilAdi != nIl.getIl(rastgeleIl)) {
-							cout << " YANLIŞ! -" << nIl.getIl(rastgeleIl) << "- olmalıydı." << endl;
-							hatirlatici = 0;
-						}
-					}
-					else { 
-						cout << " DOĞRU! - 1/4 puan kırıldı." << endl;
-						puan += (float)100 * 1 / soruSayisi * 0.75;
-					}
-				}
-				else {
-					cout << " DOĞRU! - Yarım puan kırıldı." << endl;
-					puan += (float)100 * 1 / soruSayisi * 0.5;
-				}
+
+
+		if (ilAdi==nIl.getIl(rastgeleIl)) {	// Kullanıcı ilk hakkında biliyor
+			cout << endl << " DOĞRU! - " << 100 / soruSayisi << " Puan" << endl;
+			puan += 100 / soruSayisi;
+		}
+		else {
+			cout << endl << " 1. İpucu: " << nIl.getOzellik(rastgeleIl * 3 - 2) << endl;
+			cout << " Tekrar deneyin: ";
+			cin >> ilAdi;
+			if (ilAdi == nIl.getIl(rastgeleIl)) {
+				cout << endl << " DOĞRU! - " << 100 / soruSayisi * 0.75 << " Puan" << endl;	// Kullanıcı 2. hakkında biliyor
+				puan += 100 / soruSayisi * 0.75;
 			}
 			else {
-				cout << " DOĞRU! - 3/4 puan kırıldı." << endl;
-				puan += (float)100 * 1 / soruSayisi * 0.25;
+				cout << endl << " 2. İpucu: " << nIl.getOzellik(rastgeleIl * 3 - 1) << endl;
+				cout << " Tekrar deneyin: ";
+				cin >> ilAdi;
+					if (ilAdi == nIl.getIl(rastgeleIl)) {
+						cout << endl << " DOĞRU! - " << 100 / soruSayisi * 0.5 << " Puan" << endl;	// Kullanıcı 3. hakkında biliyor
+						puan += 100 / soruSayisi * 0.5;
+					}
+					else {
+						cout << endl << " 3. İpucu: " << nIl.getOzellik(rastgeleIl * 3) << endl;
+						cout << " Tekrar deneyin: ";
+						cin >> ilAdi;
+							if (ilAdi == nIl.getIl(rastgeleIl)) {
+								cout << " DOĞRU! - " << 100 / soruSayisi * 0.25 << " Puan" << endl;	// Kullanıcı 4. hakkında biliyor
+								puan += 100 / soruSayisi * 0.25;
+							}
+							else {
+								cout << endl << " Yanlış... - " << nIl.getIl(rastgeleIl) << " - olmalıydı." << endl;
+							}
+					}
 			}
 		}
-
 		
-		
-		cout << " % " << setprecision(2) << fixed << (float)puan << endl;
-
-		this_thread::sleep_for(chrono::milliseconds(1500));
-		
-		cout << "\033[2J\033[0;0H";
+		this_thread::sleep_for(chrono::milliseconds(2000));
+		cout << "\x1B[8;0H\x1B[J";
 		
 	}
 	
-	
-
-	/*
-		afyon -> afyonkarahisar (2005'te afyonkarahisar ismini alan afyonlular'ın çoğu afyon ismini kullanmaktadır)
-		antep -> gaziantep (1921'de Gazi unvanı verilerek Gaziantep olmuştur)
-		antakya -> hatay (merkez ilçe antakya, yarım puan)
-		mersin -> icel (merkez ilçe mersin, yarım puan)
-		urfa -> sanliurfa (1984'te şanlı unvanı alarak şanlıurfa olmuştur)
-		maras -> kahramanmaras (1925'te isminin başına kahraman unvanı eklenmiştir)
-		izmit -> kocaeli (Merkez ilçe izmit)
-		adapazari -> sakarya (merkez ilçe adapazarı, yarım puan)
-	*/
-
-
 
 return 0;
 }
