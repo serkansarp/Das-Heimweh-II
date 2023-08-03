@@ -1,11 +1,13 @@
 ﻿#include "dhii.h"
 
+
 // DAS HEIMWEH II
 // DEVELOPING & TESTING
 
 
 int main(){
 	setlocale(LC_ALL, "Turkish");
+	
 	srand(time(NULL));
 	int soruSayisi = 0;
 	int dogruCevap = 0;
@@ -20,7 +22,7 @@ int main(){
 	cout << "  |    |  \\\\__  \\  /  ___/ /    ~    \\_/ __ \\|  |/     \\ \\/ \\/ // __ \\|  |  \\  |   |   |" << endl;
 	cout << "  |    `   \\/ __ \\_\\___ \\  \\    Y    /\\  ___/|  |  Y Y  \\     /\\  ___/|   Y  \\ |   |   |" << endl;
 	cout << " /_______  (____  /____  >  \\___|_  /  \\___  >__|__|_|  /\\/\\_/  \\___  >___|  / |___|___|" << endl;
-	cout << "         \\/     \\/     \\/         \\/ 2023  \\/         \\/            \\/     \\/  Logo: patorjk.com" << endl;
+	cout << "         \\/     \\/     \\/         \\/ 2023  \\/         \\/            \\/     \\/  " << endl;
 	cout << " ---------------------------------------------------------------------------------------- " << endl << endl;
 	cout << " - Das Heimweh (Sıla Hasreti) oyunumun 2'nci versiyonu olarak geliştirilmiştir." << endl;
 	cout << " - İlk oyun, yurt dışına göç eden software developerlar, doktorlar ve diğer yurt dışında" << endl;
@@ -83,12 +85,14 @@ int main(){
 					}
 			}
 		}
-		
+
 		this_thread::sleep_for(chrono::milliseconds(2000));
 		cout << "\x1B[8;0H\x1B[J";
 		
 	}
-	
+
+	cout << " Puanınız: " << puan << "/ 100" << endl;
+	cout << " Daha hassas bir değerlendirme için daha yüksek soru sayısı belirleyin." << endl << endl;
 
 return 0;
 }
