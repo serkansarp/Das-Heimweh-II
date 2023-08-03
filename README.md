@@ -1,12 +1,12 @@
 # _Das Heimweh II_
-#### Proje, ilk oyunda da olduğu gibi yurt dışına yerleşen yazılımcılar ve dolayısıyla yurt dışındaki diğer Türk vatandaşları da düşünülerek ara sıra açılıp oynanabilecek, illerin plâka kodları sorularak il adı istenen bir oyundur.
-#### Sorulacak soru sayısı önden kullanıcı tarafından belirlenir, ilin plaka kodu rastgele seçilir.
-#### Yanlış cevaplanılan soru o ilin bir özelliği hatırlatılarak tekrar cevap girilmesi istenecektir.
-#### Bu durumda her soru için 3 özellik hatırlatma ve üç yanlış cevap hakkı vardır, dördüncüde sonraki plaka koduna geçilir ve o sorudan puan alınamaz.
-#### İl isimlerinin doğru yazılmadığı ama o il için farklı isim de kullanılabildiği durumlar da oyuna eklenmiştir.
-#### Ayrıca önceki oyundan farklı olarak oyun boyunca başarı yüzdesi belirtilecektir.
-#### Yaşanılan/ konaklanılan / görev yapılan iller denk geldiğinde yer yer o ille ilgili anıların hatırlanması beklenir. O nedenle '10 saniye içerisinde bilinmesi' gibi bir süre sınırlaması yoktur.
-#### Marka değeri çalışması ile Almanca isim uygun görülmüştür, "Sıla Hasreti 2" ismiyle de anılabilir.
-#### Oyun sonunda başarı durumu yüzde olarak belirtilir.
-#### Yazılım geliştirildiği süreçte Türkiye'de 81 il bulunuyor. Sayı çoğalırsa dizilere eklenilerek düzenlenebilir.
+![das-heimweh-ii-ascii-logo](https://github.com/serkansarp/Das-Heimweh-II/assets/130149844/ed614f4b-9d2c-4faa-9017-5d909976227a)
+#### Das Heimweh (SÄ±la Hasreti) oyunumun 2'nci versiyonu olarak geliÅŸtirilmiÅŸtir.
+#### Ä°lk oyun, yurt dÄ±ÅŸÄ±na gÃ¶Ã§ eden software developerlar, doktorlar ve diÄŸer yurt dÄ±ÅŸÄ±nda yaÅŸayan TÃ¼rk vatandaÅŸlarÄ± dÃ¼ÅŸÃ¼nÃ¼lerek, ilin ismini verip plaka kodunu istemekteydi.
+#### Bu versiyonda plaka kodu verilen ilin adÄ±  istenmekte  olup yanlÄ±ÅŸ cevaplar iÃ§in 3'er ipucu da eklenmiÅŸtir. Ä°puÃ§larÄ±, sorunun tam puanÄ±ndan 1/4 oranÄ±nda eksiltilir.
+#### Ä°lk cevapta doÄŸru bilirseniz soru iÃ§in atanan en yÃ¼ksek puanÄ± alÄ±rsÄ±nÄ±z.
+#### Ä°puÃ§larÄ± ilk oyunun amacÄ±nÄ± daha fazla yerine getirmesi iÃ§in eklenmiÅŸ bir Ã¶zelliktir.
+#### AyrÄ±ca kalan soru sayÄ±sÄ± ve gÃ¼ncel puan durumunuz sÃ¼rekli ekranda gÃ¶rÃ¼ntÃ¼lenir.
+#### CevaplarÄ± TÃ¼rkÃ§e karakter kullanmadan ve kÃ¼Ã§Ã¼k harfle yazÄ±n.
 ##### <ins>Serkan SARP - Ankara</ins>
+
+
