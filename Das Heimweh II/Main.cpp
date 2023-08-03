@@ -7,7 +7,7 @@
 int main(){
 	setlocale(LC_ALL, "Turkish");
 	srand(time(NULL));
-	int soruSayisi = 2;
+	int soruSayisi = 10;
 	int dogruCevap = 0;
 	int rastgeleIl = 0;
 	string ilAdi = "0";
@@ -52,18 +52,18 @@ int main(){
 						}
 					}
 					else { 
-						cout << " DOĞRU! - 1/4 puan kırıldı" << endl;
-						puan += (float)100 * 1 / soruSayisi;
+						cout << " DOĞRU! - 1/4 puan kırıldı." << endl;
+						puan += (float)100 * 1 / soruSayisi * 0.75;
 					}
 				}
 				else {
-					cout << " DOĞRU! - Yarım puan kırıldı" << endl;
-					puan += (float)100 * 1 / soruSayisi;
+					cout << " DOĞRU! - Yarım puan kırıldı." << endl;
+					puan += (float)100 * 1 / soruSayisi * 0.5;
 				}
 			}
 			else {
-				cout << " DOĞRU! - 3/4 puan kırıldı" << endl;
-				puan += (float)100 * 1 / soruSayisi;
+				cout << " DOĞRU! - 3/4 puan kırıldı." << endl;
+				puan += (float)100 * 1 / soruSayisi * 0.25;
 			}
 		}
 
