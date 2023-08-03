@@ -52,32 +52,32 @@ int main(){
 
 
 		if (ilAdi==nIl.getIl(rastgeleIl)) {	// Kullanıcı ilk hakkında biliyor
-			cout << endl << " DOĞRU! - " << 100 / soruSayisi << " Puan" << endl;
-			puan += 100 / soruSayisi;
+			cout << endl << " DOĞRU! - " << setprecision(2) << fixed << 100 / (float)soruSayisi << " Puan" << endl;
+			puan += (float)100 / soruSayisi;
 		}
 		else {
 			cout << endl << " 1. İpucu: " << nIl.getOzellik(rastgeleIl * 3 - 2) << endl;
 			cout << " Tekrar deneyin: ";
 			cin >> ilAdi;
 			if (ilAdi == nIl.getIl(rastgeleIl)) {
-				cout << endl << " DOĞRU! - " << 100 / soruSayisi * 0.75 << " Puan" << endl;	// Kullanıcı 2. hakkında biliyor
-				puan += 100 / soruSayisi * 0.75;
+				cout << endl << " DOĞRU! - " << setprecision(2) << fixed << (float)100 / soruSayisi * 0.75 << " Puan" << endl;	// Kullanıcı 2. hakkında biliyor
+				puan += (float)100 / soruSayisi * 0.75;
 			}
 			else {
 				cout << endl << " 2. İpucu: " << nIl.getOzellik(rastgeleIl * 3 - 1) << endl;
 				cout << " Tekrar deneyin: ";
 				cin >> ilAdi;
 					if (ilAdi == nIl.getIl(rastgeleIl)) {
-						cout << endl << " DOĞRU! - " << 100 / soruSayisi * 0.5 << " Puan" << endl;	// Kullanıcı 3. hakkında biliyor
-						puan += 100 / soruSayisi * 0.5;
+						cout << endl << " DOĞRU! - " << setprecision(2) << fixed << (float)100 / soruSayisi * 0.5 << " Puan" << endl;	// Kullanıcı 3. hakkında biliyor
+						puan += (float)100 / soruSayisi * 0.5;
 					}
 					else {
 						cout << endl << " 3. İpucu: " << nIl.getOzellik(rastgeleIl * 3) << endl;
 						cout << " Tekrar deneyin: ";
 						cin >> ilAdi;
 							if (ilAdi == nIl.getIl(rastgeleIl)) {
-								cout << " DOĞRU! - " << 100 / soruSayisi * 0.25 << " Puan" << endl;	// Kullanıcı 4. hakkında biliyor
-								puan += 100 / soruSayisi * 0.25;
+								cout << " DOĞRU! - " << (float)100 / soruSayisi * 0.25 << " Puan" << endl;	// Kullanıcı 4. hakkında biliyor
+								puan += (float)100 / soruSayisi * 0.25;
 							}
 							else {
 								cout << endl << " Yanlış... - " << nIl.getIl(rastgeleIl) << " - olmalıydı." << endl;
@@ -91,7 +91,7 @@ int main(){
 		
 	}
 
-	cout << " Puanınız: " << puan << "/ 100" << endl;
+	cout << " Puanınız: " << setprecision(2) << fixed << puan << " / 100" << endl;
 	cout << " Daha hassas bir değerlendirme için daha yüksek soru sayısı belirleyin." << endl << endl;
 
 return 0;
